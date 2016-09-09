@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/07/Maven-坐标和依赖/index.html">
 <meta property="og:site_name" content="A girl">
 <meta property="og:description" content="坐标Maven坐标元素包括：groupId，artifactId，version，packaging，classifiergroupId（必须） &amp;nbsp;定义当前Maven项目隶属的实际项目artifactId（必须）&amp;nbsp;定义实际项目中一个Maven项目（模块）version（必须）&amp;nbsp;定义Maven项目当前所处版本packaging（可选）&amp;nbsp;定义Maven项目的打包">
-<meta property="og:updated_time" content="2016-09-08T08:39:21.991Z">
+<meta property="og:updated_time" content="2016-09-09T11:00:02.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven 坐标和依赖">
 <meta name="twitter:description" content="坐标Maven坐标元素包括：groupId，artifactId，version，packaging，classifiergroupId（必须） &amp;nbsp;定义当前Maven项目隶属的实际项目artifactId（必须）&amp;nbsp;定义实际项目中一个Maven项目（模块）version（必须）&amp;nbsp;定义Maven项目当前所处版本packaging（可选）&amp;nbsp;定义Maven项目的打包">
@@ -321,7 +321,87 @@
       
 
       
-        <h3 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h3><p>Maven坐标元素包括：groupId，artifactId，version，packaging，classifier<br><strong>groupId（必须）</strong> &nbsp;定义当前Maven项目隶属的实际项目<br><strong>artifactId（必须）</strong>&nbsp;定义实际项目中一个Maven项目（模块）<br><strong>version（必须）</strong>&nbsp;定义Maven项目当前所处版本<br><strong>packaging（可选）</strong>&nbsp;定义Maven项目的打包方式，默认是jar<br><strong>classifier（不能直接定义）</strong>&nbsp;帮助定义构建输出的一些附属属性</p>
+        <h3 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h3><p>Maven坐标元素包括：groupId，artifactId，version，packaging，classifier<br><code>groupId（必须）</code> &nbsp;定义当前Maven项目隶属的实际项目<br><code>artifactId（必须）</code>&nbsp;定义实际项目中一个Maven项目（模块）<br><code>version（必须）</code>&nbsp;定义Maven项目当前所处版本<br><code>packaging（可选）</code>&nbsp;定义Maven项目的打包方式，如 jar，war，pom，zip…，默认是jar<br><code>classifier（不能直接定义）</code>&nbsp;帮助定义构建输出的一些附属属性    </p>
+<hr>
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>简单的依赖配置（此配置在<code>&lt;project&gt;</code>下）：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>..<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>...<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>...<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">type</span>&gt;</span>..<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">scope</span>&gt;</span>...<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">optional</span>&gt;</span>...<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span>...<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line">			...</div><div class="line">		<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	...</div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>groupId、artifactId、version</code>&nbsp;基本坐标<br><code>type</code>&nbsp;依赖类型，对应构件中定义的 packaging，可不声明，默认为 jar<br><code>scope</code>&nbsp;依赖范围，默认compile<br><code>optional</code>&nbsp;依赖是否可选<br><code>exclusions</code>&nbsp;排除传递依赖。</p>
+<hr>
+<h5 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h5><p>Maven在编译项目主代码、编译和执行测试代码、运行Maven项目会使用三种不同的classpath，分别是编译classpath、测试classpath、运行classpath。  </p>
+<pre><code>依赖范围就是用来控制依赖与这三种classpath的关系。
+</code></pre><p>Maven的依赖范围有一下几种：  </p>
+<ol>
+<li><code>compile</code>：编译依赖范围，默认的依赖范围，对于编译、测试、运行classpath均有效  </li>
+<li><code>test</code>：测试依赖范围，只对测试classpath有效  </li>
+<li><code>provided</code>：已提供依赖范围，对于编译、测试classpath有效  </li>
+<li><code>runtime</code>：运行时依赖范围，对于测试、运行classpath有效  </li>
+<li><code>system</code>：系统依赖范围，对于编译、测试classpath有效，和provided一样，但是使用的时候必须使用systemPath元素显示的指定依赖文件的路径，由于此类依赖不是通过Maven仓库解析的，而且往往与本机系统绑定过，可能造成构建的不可移植，所以慎用  </li>
+<li><code>import</code>：导入依赖范围，不会对三种classpath产生影响  </li>
+</ol>
+<hr>
+<h5 id="传递性依赖概念"><a href="#传递性依赖概念" class="headerlink" title="传递性依赖概念"></a>传递性依赖概念</h5><p>Maven项目有spring-core依赖，spring-core又依赖commons-logging依赖，那么commons-logging依赖是Maven项目的一个传递依赖，Maven项目引依赖的时候，只需引入spring-core依赖，不需要考虑它还有什么依赖，Maven会自动引入传递性依赖</p>
+<hr>
+<h5 id="传递性依赖和依赖范围"><a href="#传递性依赖和依赖范围" class="headerlink" title="传递性依赖和依赖范围"></a>传递性依赖和依赖范围</h5><p>依赖范围不仅可以控制依赖与三种classpath的关系，还对传递性依赖产生影响。<br>如果A依赖于B，B依赖于C，那么A对于B是第一直接依赖，B对于C是第二直接依赖<br>最左边一列表示第一直接依赖范围，最上面一行表示第二直接依赖范围，中间的交叉格表示传递性依赖范围</p>
+<p>依赖范围影响传递性依赖表</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:right">compile</th>
+<th style="text-align:center">test</th>
+<th style="text-align:center">provided</th>
+<th style="text-align:center">runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">compile</td>
+<td style="text-align:right">compile</td>
+<td style="text-align:center">_</td>
+<td style="text-align:center">_</td>
+<td style="text-align:center">runtime</td>
+</tr>
+<tr>
+<td style="text-align:left">test</td>
+<td style="text-align:right">test</td>
+<td style="text-align:center">_</td>
+<td style="text-align:center">_</td>
+<td style="text-align:center">test</td>
+</tr>
+<tr>
+<td style="text-align:left">provided</td>
+<td style="text-align:right">provided</td>
+<td style="text-align:center">_</td>
+<td style="text-align:center">provided</td>
+<td style="text-align:center">provided</td>
+</tr>
+<tr>
+<td style="text-align:left">runtime</td>
+<td style="text-align:right">runtime</td>
+<td style="text-align:center">_</td>
+<td style="text-align:center">_</td>
+<td style="text-align:center">runtime</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h5 id="依赖调节"><a href="#依赖调节" class="headerlink" title="依赖调节"></a>依赖调节</h5><p>当Maven项目中多个传递依赖对于同一个构件不同版本依赖时，Maven会遵循两个原则：  </p>
+<ol>
+<li>依赖路径不相同，短路径优先  </li>
+<li>依赖路径相同，先声明优先</li>
+</ol>
+<hr>
+<h5 id="可选依赖"><a href="#可选依赖" class="headerlink" title="可选依赖"></a>可选依赖</h5><p>当A依赖B，B依赖X或Y，X、Y就是可选依赖，可选依赖不会传递，B依赖中用<optional>true</optional>表明X，Y是可选依赖。A中需要显示声明具体使用X，还是Y。可选依赖不建议使用</p>
+<p>可选依赖配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.juvenxu.mvnbook<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>project-c<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>postgresql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>postgresql<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>8.4-701.jdbc3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h5 id="排除依赖"><a href="#排除依赖" class="headerlink" title="排除依赖"></a>排除依赖</h5><p>A依赖B，B依赖C时，当B升级的时候，可能C正是不稳定的版本，所以我们不想使用C，想引入另外的稳定版本，排除掉了依赖传递，这就是排除依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.juvenxu.mvnbook<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>project-b<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.juvenxu.mvnbook<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>project-c<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.juvenxu.mvnbook<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>project-c<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>注：exclusion，只需要写groupId和artifactId</p>
+<hr>
+<h5 id="归类依赖"><a href="#归类依赖" class="headerlink" title="归类依赖"></a>归类依赖</h5><p>一个项目里面，不同模块，但是依赖版本一样，可以把版本提出来定义成一个变量  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">spring.version</span>&gt;</span>3.2.9.RELEASE<span class="tag">&lt;/<span class="name">spring.version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context-support<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
+<hr>
+<h5 id="优化依赖"><a href="#优化依赖" class="headerlink" title="优化依赖"></a>优化依赖</h5><p>查看已解析的依赖：查看Maven项目中所有的依赖<br><code>mvn dependency:list</code><br>查看依赖树：查看依赖之间的传递关系<br><code>mvn dependency:tree</code><br>查看使用但未声明的依赖与声明但未使用的依赖<br><code>mvn dependency:analyze</code><br>此命令只会分析编译主代码和测试代码需要用到的依赖，一些执行测试和运行时需要的依赖它就发现不了</p>
 
       
     </div>
@@ -449,7 +529,7 @@
                src="/images/wanmei.jpg"
                alt="Ou" />
           <p class="site-author-name" itemprop="name">Ou</p>
-          <p class="site-description motion-element" itemprop="description">学而时习之</p>
+          <p class="site-description motion-element" itemprop="description">只为寻找埋藏在最深处的真相</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -500,7 +580,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#坐标"><span class="nav-number">1.</span> <span class="nav-text">坐标</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#坐标"><span class="nav-number">1.</span> <span class="nav-text">坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">2.</span> <span class="nav-text">依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#依赖范围"><span class="nav-number">2.0.1.</span> <span class="nav-text">依赖范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#传递性依赖概念"><span class="nav-number">2.0.2.</span> <span class="nav-text">传递性依赖概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#传递性依赖和依赖范围"><span class="nav-number">2.0.3.</span> <span class="nav-text">传递性依赖和依赖范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#依赖调节"><span class="nav-number">2.0.4.</span> <span class="nav-text">依赖调节</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可选依赖"><span class="nav-number">2.0.5.</span> <span class="nav-text">可选依赖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#排除依赖"><span class="nav-number">2.0.6.</span> <span class="nav-text">排除依赖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#归类依赖"><span class="nav-number">2.0.7.</span> <span class="nav-text">归类依赖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优化依赖"><span class="nav-number">2.0.8.</span> <span class="nav-text">优化依赖</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

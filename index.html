@@ -84,15 +84,15 @@
 
 
 
-<meta name="description" content="学而时习之">
+<meta name="description" content="只为寻找埋藏在最深处的真相">
 <meta property="og:type" content="website">
 <meta property="og:title" content="A girl">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="A girl">
-<meta property="og:description" content="学而时习之">
+<meta property="og:description" content="只为寻找埋藏在最深处的真相">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A girl">
-<meta name="twitter:description" content="学而时习之">
+<meta name="twitter:description" content="只为寻找埋藏在最深处的真相">
 
 
 
@@ -327,16 +327,17 @@
       
         
           
-          文章是基于maven实战，此篇只是稍作总结，以便快速翻看介绍Maven是一个扩平台的项目管理平台，Apache的一个开源项目。Maven主要服务基于Java平台的项目构建、依赖管理和项目信息管理。官网：http://maven.apache.org/
+          文章是基于maven实战，此篇只是稍作总结，以便快速翻看
 
-###安装1、先安装jdk（最起码1.4以上）2、windows在官网下载apache-maven-3.3.3-bin.zip，解压。3、配置环境变量，在Path中加入解压路径到bin结束(例如：D:\apache-maven-3.3.3\bin)4、cmd窗口，执行 mvn -v,看到maven版本信息就是成功了。  
+介绍Maven是一个扩平台的项目管理平台，Apache的一个开源项目。Maven主要服务基于Java平台的项目构建、依赖管理和项目信息管理。官网：http://maven.apache.org/
+
+安装1、先安装jdk（最起码1.4以上）2、windows在官网下载apache-maven-3.3.3-bin.zip，解压。3、配置环境变量，在Path中加入解压路径到bin结束(例如：D:\apache-maven-3.3.3\bin)4、cmd窗口，执行 mvn -v,看到maven版本信息就是成功了。  
 eclipse上maven插件 m2eclipse
 
-POM编写&lt;project&gt;： 根目录&lt;modelVersion&gt;： POM模型版本，Maven2和Maven3，它只能是4.0.0&lt;artifactId&gt;：Maven项目的唯一ID,一般是子项目名(模块名)，推荐用实际项目名作为前缀&lt;groupId&gt;： 项目所在组，例如：com.googlecode.myapp，com.googlecode表示一个公司，myapp是实际项目名字&lt;version&gt;： 当前项目的版本&lt;name&gt;： 对用户更为友好的项目名称  
+POM编写&lt;project&gt;： 根目录&lt;modelVersion&gt;： POM模型版本，Maven2和Maven3，它只能是4.0.0&lt;artifactId&gt;：Maven项目的唯一ID,一般是子项目名(模块名)，推荐用实际项目名作为前缀&lt;groupId&gt;： Maven项目隶属的实际项目，例如：com.googlecode.myapp，com.googlecode表示一个公司，myapp是实际项目名字&lt;version&gt;： 当前项目的版本&lt;name&gt;： 对用户更为友好的项目名称  
 
-###项目代码分布
+项目代码分布
 
-pom.
           ...
 
           <div class="post-more-link text-center">
@@ -470,9 +471,11 @@ pom.
       
         
           
-          坐标Maven坐标元素包括：groupId，artifactId，version，packaging，classifiergroupId（必须） &nbsp;定义当前Maven项目隶属的实际项目artifactId（必须）&nbsp;定义实际项目中一个Maven项目（模块）version（必须）&nbsp;定义Maven项目当前所处版本packaging（可选）&nbsp;定义Maven项目的打包方式，默认是jarclassifier（不能直接定义）&nbsp;帮助定义构建输出的一些附属属性
+          坐标Maven坐标元素包括：groupId，artifactId，version，packaging，classifiergroupId（必须） &nbsp;定义当前Maven项目隶属的实际项目artifactId（必须）&nbsp;定义实际项目中一个Maven项目（模块）version（必须）&nbsp;定义Maven项目当前所处版本packaging（可选）&nbsp;定义Maven项目的打包方式，如 jar，war，pom，zip…，默认是jarclassifier（不能直接定义）&nbsp;帮助定义构建输出的一些附属属性    
 
-          
+依赖简单的依赖配置（此配置在&lt;project&gt;下）：
+123456789101112131415&lt;dependencies&gt;	&lt;dependency&gt;		&lt;groupId&gt;..&lt;/groupId&gt;		&lt;artifactId&gt;...&lt;/artifactId&gt;		&lt;version&gt;...&lt;/version&gt;		&lt;type&gt;..&lt;/type&gt;		&lt;scope&gt;...&lt;/scope&gt;		&lt;optional&gt;...&lt;/optional&gt;		&lt;exclusions&gt;		
+          ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/07/Maven-坐标和依赖/#more" rel="contents">
@@ -541,7 +544,7 @@ pom.
                src="/images/wanmei.jpg"
                alt="Ou" />
           <p class="site-author-name" itemprop="name">Ou</p>
-          <p class="site-description motion-element" itemprop="description">学而时习之</p>
+          <p class="site-description motion-element" itemprop="description">只为寻找埋藏在最深处的真相</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">

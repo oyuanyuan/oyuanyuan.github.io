@@ -84,22 +84,28 @@
 
 
 
-<meta name="description" content="文章是基于maven实战，此篇只是稍作总结，以便快速翻看介绍Maven是一个扩平台的项目管理平台，Apache的一个开源项目。Maven主要服务基于Java平台的项目构建、依赖管理和项目信息管理。官网：http://maven.apache.org/
+<meta name="description" content="文章是基于maven实战，此篇只是稍作总结，以便快速翻看
 
-###安装1、先安装jdk（最起码1.4以上）2、windows在官网下载apache-maven-3.3.3-bin.zip，解压。3、配置环境">
+介绍Maven是一个扩平台的项目管理平台，Apache的一个开源项目。Maven主要服务基于Java平台的项目构建、依赖管理和项目信息管理。官网：http://maven.apache.org/
+
+安装1、先安装jdk（最起码1.4以上）2、windows在官网下载apache-maven-3.3.3-bin.zip，解压。3、配置环境变">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven安装和配置">
 <meta property="og:url" content="http://yoursite.com/2016/09/07/Maven安装和配置/index.html">
 <meta property="og:site_name" content="A girl">
-<meta property="og:description" content="文章是基于maven实战，此篇只是稍作总结，以便快速翻看介绍Maven是一个扩平台的项目管理平台，Apache的一个开源项目。Maven主要服务基于Java平台的项目构建、依赖管理和项目信息管理。官网：http://maven.apache.org/
+<meta property="og:description" content="文章是基于maven实战，此篇只是稍作总结，以便快速翻看
 
-###安装1、先安装jdk（最起码1.4以上）2、windows在官网下载apache-maven-3.3.3-bin.zip，解压。3、配置环境">
-<meta property="og:updated_time" content="2016-09-08T08:38:12.894Z">
+介绍Maven是一个扩平台的项目管理平台，Apache的一个开源项目。Maven主要服务基于Java平台的项目构建、依赖管理和项目信息管理。官网：http://maven.apache.org/
+
+安装1、先安装jdk（最起码1.4以上）2、windows在官网下载apache-maven-3.3.3-bin.zip，解压。3、配置环境变">
+<meta property="og:updated_time" content="2016-09-09T10:51:49.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven安装和配置">
-<meta name="twitter:description" content="文章是基于maven实战，此篇只是稍作总结，以便快速翻看介绍Maven是一个扩平台的项目管理平台，Apache的一个开源项目。Maven主要服务基于Java平台的项目构建、依赖管理和项目信息管理。官网：http://maven.apache.org/
+<meta name="twitter:description" content="文章是基于maven实战，此篇只是稍作总结，以便快速翻看
 
-###安装1、先安装jdk（最起码1.4以上）2、windows在官网下载apache-maven-3.3.3-bin.zip，解压。3、配置环境">
+介绍Maven是一个扩平台的项目管理平台，Apache的一个开源项目。Maven主要服务基于Java平台的项目构建、依赖管理和项目信息管理。官网：http://maven.apache.org/
+
+安装1、先安装jdk（最起码1.4以上）2、windows在官网下载apache-maven-3.3.3-bin.zip，解压。3、配置环境变">
 
 
 
@@ -327,30 +333,33 @@
       
 
       
-        <h2 id="文章是基于maven实战，此篇只是稍作总结，以便快速翻看"><a href="#文章是基于maven实战，此篇只是稍作总结，以便快速翻看" class="headerlink" title="文章是基于maven实战，此篇只是稍作总结，以便快速翻看"></a><code>文章是基于maven实战，此篇只是稍作总结，以便快速翻看</code></h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Maven是一个扩平台的项目管理平台，Apache的一个开源项目。Maven主要服务基于Java平台的项目构建、依赖管理和项目信息管理。<br>官网：<a href="http://maven.apache.org/" target="_blank" rel="external">http://maven.apache.org/</a></p>
+        <pre><code>文章是基于maven实战，此篇只是稍作总结，以便快速翻看
+</code></pre><hr>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Maven是一个扩平台的项目管理平台，Apache的一个开源项目。Maven主要服务基于Java平台的项目构建、依赖管理和项目信息管理。<br>官网：<a href="http://maven.apache.org/" target="_blank" rel="external">http://maven.apache.org/</a></p>
 <hr>
-<p>###安装<br>1、先安装jdk（最起码1.4以上）<br>2、windows在官网下载apache-maven-3.3.3-bin.zip，解压。<br>3、配置环境变量，在Path中加入解压路径到bin结束(例如：D:\apache-maven-3.3.3\bin)<br>4、cmd窗口，执行 mvn -v,看到maven版本信息就是成功了。  </p>
-<p>eclipse上maven插件 m2eclipse</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>1、先安装jdk（最起码1.4以上）<br>2、windows在官网下载apache-maven-3.3.3-bin.zip，解压。<br>3、配置环境变量，在Path中加入解压路径到bin结束(例如：D:\apache-maven-3.3.3\bin)<br>4、cmd窗口，执行 mvn -v,看到maven版本信息就是成功了。  </p>
+<pre><code>eclipse上maven插件 m2eclipse
+</code></pre><hr>
+<h3 id="POM编写"><a href="#POM编写" class="headerlink" title="POM编写"></a>POM编写</h3><p><code>&lt;project&gt;：</code> 根目录<br><code>&lt;modelVersion&gt;：</code> POM模型版本，Maven2和Maven3，它只能是4.0.0<br><code>&lt;artifactId&gt;：</code>Maven项目的唯一ID,一般是子项目名(模块名)，推荐用实际项目名作为前缀<br><code>&lt;groupId&gt;：</code> Maven项目隶属的实际项目，例如：com.googlecode.myapp，com.googlecode表示一个公司，myapp是实际项目名字<br><code>&lt;version&gt;：</code> 当前项目的版本<br><code>&lt;name&gt;：</code> 对用户更为友好的项目名称  </p>
 <hr>
-<h3 id="POM编写"><a href="#POM编写" class="headerlink" title="POM编写"></a>POM编写</h3><p><code>&lt;project&gt;：</code> 根目录<br><code>&lt;modelVersion&gt;：</code> POM模型版本，Maven2和Maven3，它只能是4.0.0<br><code>&lt;artifactId&gt;：</code>Maven项目的唯一ID,一般是子项目名(模块名)，推荐用实际项目名作为前缀<br><code>&lt;groupId&gt;：</code> 项目所在组，例如：com.googlecode.myapp，com.googlecode表示一个公司，myapp是实际项目名字<br><code>&lt;version&gt;：</code> 当前项目的版本<br><code>&lt;name&gt;：</code> 对用户更为友好的项目名称  </p>
-<hr>
-<p>###项目代码分布</p>
-<ul>
+<h3 id="项目代码分布"><a href="#项目代码分布" class="headerlink" title="项目代码分布"></a>项目代码分布</h3><ul>
 <li>pom.xml放在项目根目录下面  </li>
 <li>一般会把项目主代码放在：src/main/java/目录下，项目主代码会被最终打包进构建中（例如jar）  </li>
 <li>一般项目测试代码放在:src/test/java/目录下，只会测试时用到，不会被打包    </li>
 <li>项目构建的所有输出都在target/目录中</li>
 </ul>
 <hr>
-<p>###常用命令<br><strong>mvn -v</strong> &nbsp;查看版本<br><strong>mvn clean</strong> &nbsp;    清理输出目录target/<br><strong>mvn compile</strong> &nbsp;编译Maven项目主代码，将主代码编译到target/classes目录<br><strong>mvn test</strong> &nbsp;编译Maven项目测试代码<br><strong>mvn package</strong> &nbsp;项目打包<br><strong>mvn install</strong> &nbsp;安装，生成jar，供别的项目使用   </p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p><strong>mvn -v</strong> &nbsp;查看版本<br><strong>mvn clean</strong> &nbsp;清理输出目录target/<br><strong>mvn compile</strong> &nbsp;编译Maven项目主代码，将主代码编译到target/classes目录<br><strong>mvn test</strong> &nbsp;编译Maven项目测试代码<br><strong>mvn package</strong> &nbsp;项目打包<br><strong>mvn install</strong> &nbsp;安装，生成jar，供别的项目使用   </p>
 <p>一般执行命令的时候都会先执行clean，可以写成一条命令，例如： mvn clean compile，mvn clean install</p>
-<p>###maven-compiler-plugin插件<br>maven-compiler-plugin指定jdk版本和编码  </p>
+<hr>
+<h3 id="maven-compiler-plugin插件"><a href="#maven-compiler-plugin插件" class="headerlink" title="maven-compiler-plugin插件"></a>maven-compiler-plugin插件</h3><p>maven-compiler-plugin指定jdk版本和编码  </p>
 <p>使用该插件的理由：  </p>
 <ol>
 <li>maven2默认jdk是1.3，maven3默认jdk是1.5，当你项目引用java新版本中的新特性，项目编译会报错，所以需要手动指定jdk编译版本。  </li>
-<li>项目中编码和系统编码不一致。<br>当</li>
+<li>项目中编码和系统编码不一致。  </li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">source</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">target</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"> 					<span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span> </div><div class="line">				<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>插件配置（此配置在<code>&lt;project&gt;</code>下）：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">source</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">target</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span> </div><div class="line">			<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -477,7 +486,7 @@
                src="/images/wanmei.jpg"
                alt="Ou" />
           <p class="site-author-name" itemprop="name">Ou</p>
-          <p class="site-description motion-element" itemprop="description">学而时习之</p>
+          <p class="site-description motion-element" itemprop="description">只为寻找埋藏在最深处的真相</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -528,7 +537,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文章是基于maven实战，此篇只是稍作总结，以便快速翻看"><span class="nav-number">1.</span> <span class="nav-text">文章是基于maven实战，此篇只是稍作总结，以便快速翻看</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POM编写"><span class="nav-number">1.2.</span> <span class="nav-text">POM编写</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POM编写"><span class="nav-number">3.</span> <span class="nav-text">POM编写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目代码分布"><span class="nav-number">4.</span> <span class="nav-text">项目代码分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">5.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-compiler-plugin插件"><span class="nav-number">6.</span> <span class="nav-text">maven-compiler-plugin插件</span></a></li></ol></div>
             
           </div>
         </section>
