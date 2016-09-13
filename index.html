@@ -248,6 +248,159 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/12/Maven仓库/" itemprop="url">
+                  Maven仓库
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-12T10:15:23+08:00" content="2016-09-12">
+              2016-09-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Maven系列/" itemprop="url" rel="index">
+                    <span itemprop="name">Maven系列</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/12/Maven仓库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/Maven仓库/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/12/Maven仓库/" class="leancloud_visitors" data-flag-title="Maven仓库">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          仓库概念构件：Maven世界中，任何一个依赖、插件或者项目构建的输出，都可以称之为构件仓库：得益于坐标机制，任何Maven项目使用任何一个构件的方式完全相同。在此基础上，Maven可以在某一位置统一存储所有Maven项目共享构件，这个统一的位置就是仓库。
+
+仓库的分类仓库分为两类：本地仓库和远程仓库，远程仓库分为中央仓库、私服、其他公共库  
+
+本地仓库：Maven利用坐标使用构件的时候，首先查找本地仓库，如果本地仓库没有，就会去找远程仓库，远程仓库没有就报错  
+中央仓库：Maven核心自带的远成仓库，包含了绝大部分的构件，默认的远程仓库，Mavan的安装文件自带了中央仓库的配置
+
+
+本地仓库自定义本地仓库的位置:(在settings.xml中配置)  
+123&lt;settings&gt;	&lt;localRepository&gt;d:/maven_repo&lt;/localRepository&gt;&lt;/settings&gt;
+本地仓库构件的来源：  
+
+从远程仓库下载到本地仓库  
+mvn clean install，执行这个命令，项目的构建输出文件会安装到本地仓库  
+
+
+私服私服是一种特殊的远程仓库，它是架设在局域网内的仓库服务，私服代理广域网上的远程仓库，供局域网内的Maven用户使用比较流行的Maven私服软件—–Nexus
+使用私服的好处：
+
+节省
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/12/Maven仓库/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/07/Maven安装和配置/" itemprop="url">
                   Maven安装和配置
                 </a>
@@ -549,7 +702,7 @@ POM编写&lt;project&gt;： 根目录&lt;modelVersion&gt;： POM模型版本，M
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

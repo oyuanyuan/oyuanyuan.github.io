@@ -1,0 +1,831 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Maven," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="仓库概念构件：Maven世界中，任何一个依赖、插件或者项目构建的输出，都可以称之为构件仓库：得益于坐标机制，任何Maven项目使用任何一个构件的方式完全相同。在此基础上，Maven可以在某一位置统一存储所有Maven项目共享构件，这个统一的位置就是仓库。
+
+仓库的分类仓库分为两类：本地仓库和远程仓库，远程仓库分为中央仓库、私服、其他公共库  
+
+本地仓库：Maven利用坐标使用构件的时候，首先查找">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven仓库">
+<meta property="og:url" content="http://yoursite.com/2016/09/12/Maven仓库/index.html">
+<meta property="og:site_name" content="A girl">
+<meta property="og:description" content="仓库概念构件：Maven世界中，任何一个依赖、插件或者项目构建的输出，都可以称之为构件仓库：得益于坐标机制，任何Maven项目使用任何一个构件的方式完全相同。在此基础上，Maven可以在某一位置统一存储所有Maven项目共享构件，这个统一的位置就是仓库。
+
+仓库的分类仓库分为两类：本地仓库和远程仓库，远程仓库分为中央仓库、私服、其他公共库  
+
+本地仓库：Maven利用坐标使用构件的时候，首先查找">
+<meta property="og:updated_time" content="2016-09-13T07:02:29.867Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maven仓库">
+<meta name="twitter:description" content="仓库概念构件：Maven世界中，任何一个依赖、插件或者项目构建的输出，都可以称之为构件仓库：得益于坐标机制，任何Maven项目使用任何一个构件的方式完全相同。在此基础上，Maven可以在某一位置统一存储所有Maven项目共享构件，这个统一的位置就是仓库。
+
+仓库的分类仓库分为两类：本地仓库和远程仓库，远程仓库分为中央仓库、私服、其他公共库  
+
+本地仓库：Maven利用坐标使用构件的时候，首先查找">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6327867838245635000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/12/Maven仓库/"/>
+
+  <title> Maven仓库 | A girl </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">A girl</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Quick notes</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Maven仓库
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-12T10:15:23+08:00" content="2016-09-12">
+              2016-09-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Maven系列/" itemprop="url" rel="index">
+                    <span itemprop="name">Maven系列</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/12/Maven仓库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/Maven仓库/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/12/Maven仓库/" class="leancloud_visitors" data-flag-title="Maven仓库">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="仓库概念"><a href="#仓库概念" class="headerlink" title="仓库概念"></a>仓库概念</h4><p><strong>构件</strong>：Maven世界中，任何一个依赖、插件或者项目构建的输出，都可以称之为构件<br><strong>仓库</strong>：得益于坐标机制，任何Maven项目使用任何一个构件的方式完全相同。<br>在此基础上，Maven可以在某一位置统一存储所有Maven项目共享构件，这个统一的位置就是仓库。</p>
+<hr>
+<h4 id="仓库的分类"><a href="#仓库的分类" class="headerlink" title="仓库的分类"></a>仓库的分类</h4><p>仓库分为两类：<strong>本地仓库</strong>和<strong>远程仓库</strong>，远程仓库分为<strong>中央仓库</strong>、<strong>私服</strong>、其他公共库  </p>
+<ol>
+<li><strong>本地仓库</strong>：Maven利用坐标使用构件的时候，首先查找本地仓库，如果本地仓库没有，就会去找远程仓库，远程仓库没有就报错  </li>
+<li><strong>中央仓库</strong>：Maven核心自带的远成仓库，包含了绝大部分的构件，默认的远程仓库，Mavan的安装文件自带了中央仓库的配置</li>
+</ol>
+<hr>
+<h4 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h4><p>自定义本地仓库的位置:(在settings.xml中配置)  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>d:/maven_repo<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>本地仓库构件的来源：  </p>
+<ul>
+<li>从远程仓库下载到本地仓库  </li>
+<li><code>mvn clean install</code>，执行这个命令，项目的构建输出文件会安装到本地仓库  </li>
+</ul>
+<hr>
+<h4 id="私服"><a href="#私服" class="headerlink" title="私服"></a>私服</h4><p><strong>私服</strong>是一种特殊的远程仓库，它是架设在局域网内的仓库服务，私服代理广域网上的远程仓库，供局域网内的Maven用户使用<br>比较流行的Maven私服软件—–<strong>Nexus</strong></p>
+<p>使用私服的好处：</p>
+<ul>
+<li>节省自己的外网带宽</li>
+<li>加速Maven构建</li>
+<li>部署第三方构件</li>
+<li>提高稳定性，增强控制</li>
+<li>降低中央仓库的负荷</li>
+</ul>
+<p>配置详解： (在POM.xml中配置)<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--JBoss Maven仓库配置 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 可以使用repository声明一个或多个仓库 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--id必须唯一，Maven自带仓库使用的id是central，  </span></div><div class="line">          	 	所以自己定义不能使用central，    </div><div class="line">           		不然会覆盖中央仓的配置 --&gt;</div><div class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>jboss<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--仓库名字 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>JBoss Repostory<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--仓库地址，可以再浏览器中打开浏览构件 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repository.jboss.com/maven2/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">			<span class="comment">&lt;!--enabled值为true，开启JBoss仓库的发布版本下载支持 --&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span>           </div><div class="line">			<span class="comment">&lt;!--配置Maven从远程仓库检查更新的频率，    </span></div><div class="line">                	默认daily（每天检查一次），其他值：     </div><div class="line">                	never（从不检查更新）、always（每次构建都检查更新）、  </div><div class="line">                	interval:X（每隔X分钟检查一次，X为任意整数） --&gt;</div><div class="line">			<span class="tag">&lt;<span class="name">updatePolicy</span>&gt;</span>daily<span class="tag">&lt;/<span class="name">updatePolicy</span>&gt;</span></div><div class="line">			<span class="comment">&lt;!--配置Maven检查校验和文件策略。当构件被部署到Maven仓库时，  </span></div><div class="line">                	会部署对应的校验和文件。默认值是warn（Maven会在执行构建  </div><div class="line">                	时输出警告信息），其他值：fail(Maven遇到校验和错误就让  </div><div class="line">                	构建失败）、ignore（使Maven完全忽略校验的错误） --&gt;</div><div class="line">			<span class="tag">&lt;<span class="name">checksumPolicy</span>&gt;</span>ignore<span class="tag">&lt;/<span class="name">checksumPolicy</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">			<span class="comment">&lt;!--enabled值为false，关闭仓库快照版本的下载支持 --&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">			<span class="comment">&lt;!-- 同releases --&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">updatePolicy</span>&gt;</span>daily<span class="tag">&lt;/<span class="name">updatePolicy</span>&gt;</span></div><div class="line">			<span class="comment">&lt;!-- 同releases --&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">checksumPolicy</span>&gt;</span>ignore<span class="tag">&lt;/<span class="name">checksumPolicy</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">layout</span>&gt;</span>default<span class="tag">&lt;/<span class="name">layout</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="远程仓库认证"><a href="#远程仓库认证" class="headerlink" title="远程仓库认证"></a>远程仓库认证</h4><p>为防止非法的仓库访问，可以为仓库提供用户名和密码，必须配置在settings.xml中</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!--id必须和repository的id一致--&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>jboss<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!--用户名--&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!--密码--&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">password</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">server</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servers</span>&gt;</span></div></pre></td></tr></table></figure>
+<hr>
+<h4 id="部署至远程仓库"><a href="#部署至远程仓库" class="headerlink" title="部署至远程仓库"></a>部署至远程仓库</h4><p>Maven项目生成的构件部署到仓库，需要如下配置：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--发布版本构件的仓库--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--id必须唯一--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>proj-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--仓库名字 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>Proj Release Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--仓库地址 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.0.116/content/repositories/proj-releases/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--快照版本的仓库--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">snapshotRepository</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>proj-snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>Proj Release Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.0.116/content/repositories/proj-snapshots/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">snapshotRepository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>如果需要认证，记得在setting.xml中配置server，记得id要和仓库id一致。<br>配置正确后，执行<code>mvn clean deploy</code>，Maven就会将项目构建输出的构件部署到配置对应的远程仓库，如果项目当前的版本是快照版本，则部署到快照版本仓库地址，否则就部署到发布版本仓库地址。</p>
+<p><code>mvn clean install-U</code>，强制Maven检查更新，这样Maven就会忽略<updatepolicy>的配置</updatepolicy></p>
+<hr>
+<h4 id="快照版本"><a href="#快照版本" class="headerlink" title="快照版本"></a>快照版本</h4><p>当项目正处于开发阶段用快照版本比较好，因为这样可以减少频繁的修改POM文件来引入最新版本的依赖。当模块A引入模块B的2.1-SNAPSHOT版本依赖（快照版本）时，模块A构建，Maven会自动在仓库中检查模块B的2.1-SNAPSHOT的最新构建，当有更新的时候便会进行下载。更新的频率是通过<updatepolicy>配置的，也可以用<code>mvn clean install-U</code>强制更新。<br>当项目开发完毕，发布时，应该把快照版本更改为发布版本，因为发布版本是稳定的。</updatepolicy></p>
+<hr>
+<h4 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h4><p>如果仓库X可以提供仓库Y存储的所有内容，那么就可以认为X是Y的一个镜像。</p>
+<p>配置中央仓库镜像：（配置在settings.xml）  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">mirror</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--This sends everything else to /public --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>maven.net.cn<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.net.cn/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>&lt;mirrorOf&gt;</code>的值为central，表示该配置为中央仓库的镜像，任何对于中央仓库的请求都会转至该镜像  </p>
+<pre><code>需要注意的是：由于镜像完全屏蔽了被镜像的仓库，当镜像仓库不稳性或者停止服务的时候，  
+Maven仍将无法访问被镜像仓库，因而无法下载构件。
+</code></pre><p>为了满足一些复杂的请求，Maven还支持更高级的镜像配置：  </p>
+<ul>
+<li><code>&lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</code>：匹配所有远程仓库</li>
+<li><code>&lt;mirrorOf&gt;external:*&lt;/mirrorOf&gt;</code>：匹配所有不在本机上的远程仓库</li>
+<li><code>&lt;mirrorOf&gt;repo1,repo2&lt;/mirrorOf&gt;</code>：匹配仓库repo1，repo2</li>
+<li><code>&lt;mirrorOf&gt;*,!repo1&lt;/mirrorOf&gt;</code>：匹配所有远程仓库，repo1除外</li>
+</ul>
+<hr>
+<h4 id="仓库搜索服务"><a href="#仓库搜索服务" class="headerlink" title="仓库搜索服务"></a>仓库搜索服务</h4><p>我一般用第一个<br><a href="http://mvnrepository.com" target="_blank" rel="external">http://mvnrepository.com</a><br><a href="http://repository.sonatype.org" target="_blank" rel="external">http://repository.sonatype.org</a><br><a href="http://mvnbrowser.com/" target="_blank" rel="external">http://mvnbrowser.com/</a><br><a href="http://www.jarvana.com/jarvana/" target="_blank" rel="external">http://www.jarvana.com/jarvana/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Maven/" rel="tag">#Maven</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/07/Maven安装和配置/" rel="next" title="Maven安装和配置">
+                <i class="fa fa-chevron-left"></i> Maven安装和配置
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/12/Maven仓库/"
+           data-title="Maven仓库" data-url="http://yoursite.com/2016/09/12/Maven仓库/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/wanmei.jpg"
+               alt="Ou" />
+          <p class="site-author-name" itemprop="name">Ou</p>
+          <p class="site-description motion-element" itemprop="description">只为寻找埋藏在最深处的真相</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#仓库概念"><span class="nav-number">1.</span> <span class="nav-text">仓库概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#仓库的分类"><span class="nav-number">2.</span> <span class="nav-text">仓库的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地仓库"><span class="nav-number">3.</span> <span class="nav-text">本地仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#私服"><span class="nav-number">4.</span> <span class="nav-text">私服</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程仓库认证"><span class="nav-number">5.</span> <span class="nav-text">远程仓库认证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署至远程仓库"><span class="nav-number">6.</span> <span class="nav-text">部署至远程仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快照版本"><span class="nav-number">7.</span> <span class="nav-text">快照版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#镜像"><span class="nav-number">8.</span> <span class="nav-text">镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#仓库搜索服务"><span class="nav-number">9.</span> <span class="nav-text">仓库搜索服务</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ou</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"oyy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("MX8ux3Joxy2x2gGgqOaPsKOM-gzGzoHsz", "Vb6oOzurEOqFLG8FUcFVWxBG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
