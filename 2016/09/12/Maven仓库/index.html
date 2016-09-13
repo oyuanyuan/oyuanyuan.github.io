@@ -98,7 +98,7 @@
 仓库的分类仓库分为两类：本地仓库和远程仓库，远程仓库分为中央仓库、私服、其他公共库  
 
 本地仓库：Maven利用坐标使用构件的时候，首先查找">
-<meta property="og:updated_time" content="2016-09-13T07:02:29.867Z">
+<meta property="og:updated_time" content="2016-09-13T07:05:17.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven仓库">
 <meta name="twitter:description" content="仓库概念构件：Maven世界中，任何一个依赖、插件或者项目构建的输出，都可以称之为构件仓库：得益于坐标机制，任何Maven项目使用任何一个构件的方式完全相同。在此基础上，Maven可以在某一位置统一存储所有Maven项目共享构件，这个统一的位置就是仓库。
@@ -371,7 +371,7 @@
 <hr>
 <h4 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h4><p>如果仓库X可以提供仓库Y存储的所有内容，那么就可以认为X是Y的一个镜像。</p>
 <p>配置中央仓库镜像：（配置在settings.xml）  </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">mirror</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--This sends everything else to /public --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>maven.net.cn<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.net.cn/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">mirror</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--This sends everything else to /public --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>maven.net.cn<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.net.cn/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></div></pre></td></tr></table></figure>
 <p><code>&lt;mirrorOf&gt;</code>的值为central，表示该配置为中央仓库的镜像，任何对于中央仓库的请求都会转至该镜像  </p>
 <pre><code>需要注意的是：由于镜像完全屏蔽了被镜像的仓库，当镜像仓库不稳性或者停止服务的时候，  
 Maven仍将无法访问被镜像仓库，因而无法下载构件。
@@ -422,6 +422,10 @@ Maven仍将无法访问被镜像仓库，因而无法下载构件。
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/13/Maven生命周期和插件/" rel="prev" title="Maven生命周期和插件">
+                Maven生命周期和插件 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -516,7 +520,7 @@ Maven仍将无法访问被镜像仓库，因而无法下载构件。
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

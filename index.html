@@ -248,6 +248,161 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/13/Maven生命周期和插件/" itemprop="url">
+                  Maven生命周期和插件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-13T15:06:39+08:00" content="2016-09-13">
+              2016-09-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Maven系列/" itemprop="url" rel="index">
+                    <span itemprop="name">Maven系列</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/13/Maven生命周期和插件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/13/Maven生命周期和插件/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/13/Maven生命周期和插件/" class="leancloud_visitors" data-flag-title="Maven生命周期和插件">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          生命周期概念Maven的生命周期就是为了对所有的都见过程进行抽象统一。生命周期包括了：项目的清理、初始化、编译、测试、打包、集成测试、验证、部署和站点生成等几乎所有的构建步骤。Maven生命周期是抽象的，这意味着生命周期本身不做任何实际的工作，具体工作都由对应的插件来做
+生命周期详解Maven拥有三套相互独立的生命周期，分别是：clean，default，site。每个生命周期都包含一些阶段（phase），这些阶段是有顺序的，并且后面的阶段依赖前面的阶段。执行某个阶段的命令，会把前面依赖的阶段也都执行一遍
+clean生命周期目的是清理项目，阶段如下：
+
+pre-clean：执行清理前需要完成的工作
+clean：清理上一次构建生成的文件
+post-clean：执行清理后需要完成的工作
+
+default生命周期定了真正构建时所需要的执行所有步骤，阶段如下：
+
+validate
+initialize
+generate-sources
+process-sources 处理项目主资源文件
+generate-resources
+process-resources
+compile  编译项目的源代码
+process-classes
+generate-test-sources
+process-test-sources
+generate-test-resources
+process-test-res
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/13/Maven生命周期和插件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/12/Maven仓库/" itemprop="url">
                   Maven仓库
                 </a>
@@ -702,7 +857,7 @@ POM编写&lt;project&gt;： 根目录&lt;modelVersion&gt;： POM模型版本，M
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
