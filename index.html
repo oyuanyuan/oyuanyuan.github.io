@@ -248,6 +248,141 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/14/Maven聚合与继承/" itemprop="url">
+                  Maven聚合与继承
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-14T10:39:58+08:00" content="2016-09-14">
+              2016-09-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Maven系列/" itemprop="url" rel="index">
+                    <span itemprop="name">Maven系列</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/14/Maven聚合与继承/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/14/Maven聚合与继承/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/14/Maven聚合与继承/" class="leancloud_visitors" data-flag-title="Maven聚合与继承">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          聚合聚合模块是为了能够使用一条命令能构建多个模块，通过聚合模块构建整个项目的所有模块，方便快读构建项目。聚合模块配置：12345678910111213&lt;project&gt;	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;	&lt;groupId&gt;com.company.bank&lt;/groupId&gt;	&lt;artifactId&gt;bank-aggregator&lt;/artifactId&gt;	&lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;	&lt;!-- 其他模块,值都是对于聚合模块的相对目录 --&gt;	&lt;modules&gt;		&lt;module&gt;bank-login&lt;/module&gt;		&lt;module&gt;bank-manager&lt;/module&gt;    &lt;/modules&gt;    &lt;!--必须是pom --&gt;	&lt;packaging&gt;pom&lt;/packaging&gt;&lt;/project&gt;
+&lt;module&gt;中配置的是对于聚合模块的相对目录，一般名字和artifactId一致，一般其他模块作为聚合模块的子目录存在，如果想使用平行目录结构配
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/14/Maven聚合与继承/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/13/Maven生命周期和插件/" itemprop="url">
                   Maven生命周期和插件
                 </a>
@@ -679,146 +814,13 @@ POM编写&lt;project&gt;： 根目录&lt;modelVersion&gt;： POM模型版本，M
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/07/Maven-坐标和依赖/" itemprop="url">
-                  Maven 坐标和依赖
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-07T17:46:44+08:00" content="2016-09-07">
-              2016-09-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Maven系列/" itemprop="url" rel="index">
-                    <span itemprop="name">Maven系列</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/07/Maven-坐标和依赖/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/Maven-坐标和依赖/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/07/Maven-坐标和依赖/" class="leancloud_visitors" data-flag-title="Maven 坐标和依赖">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          坐标Maven坐标元素包括：groupId，artifactId，version，packaging，classifiergroupId（必须） &nbsp;定义当前Maven项目隶属的实际项目artifactId（必须）&nbsp;定义实际项目中一个Maven项目（模块）version（必须）&nbsp;定义Maven项目当前所处版本packaging（可选）&nbsp;定义Maven项目的打包方式，如 jar，war，pom，zip…，默认是jarclassifier（不能直接定义）&nbsp;帮助定义构建输出的一些附属属性    
-
-依赖简单的依赖配置（此配置在&lt;project&gt;下）：
-123456789101112131415&lt;dependencies&gt;	&lt;dependency&gt;		&lt;groupId&gt;..&lt;/groupId&gt;		&lt;artifactId&gt;...&lt;/artifactId&gt;		&lt;version&gt;...&lt;/version&gt;		&lt;type&gt;..&lt;/type&gt;		&lt;scope&gt;...&lt;/scope&gt;		&lt;optional&gt;...&lt;/optional&gt;		&lt;exclusions&gt;		
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/07/Maven-坐标和依赖/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -857,7 +859,7 @@ POM编写&lt;project&gt;： 根目录&lt;modelVersion&gt;： POM模型版本，M
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
